@@ -1,0 +1,208 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background2">
+
+    <!-- Полупрозрачный наложенный фон -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#50000000">
+
+        <!-- Линейный макет для заголовка и состояния питомца -->
+        <LinearLayout
+            android:id="@+id/headerAndState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Заголовок Питомец -->
+            <TextView
+                android:id="@+id/headerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="Питомец"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Картинка Питомца в рамке -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="30dp"
+                android:padding="3dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_stroke_black95_press_white">
+
+                    <ImageView
+                        android:id="@+id/petImageView"
+                        android:layout_width="300dp"
+                        android:layout_height="300dp"
+                        android:layout_margin="7dp"
+                        android:scaleType="centerCrop" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Горизонтальный макет для сытости, счастья и здоровья -->
+            <LinearLayout
+                android:id="@+id/petState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_stroke_black95_press_white"
+                android:padding="15dp">
+
+                <!-- Сытость -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="50dp">
+
+                    <!-- Иконка сытости -->
+                    <ImageView
+                        android:id="@+id/hungerIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/feed"
+                        android:layout_gravity="center"/>
+
+                    <!-- Текст сытости -->
+                    <TextView
+                        android:id="@+id/hungerTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="50%"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <!-- Счастье -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginEnd="50dp">
+
+                    <!-- Иконка счастья -->
+                    <ImageView
+                        android:id="@+id/happinessIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/happy"
+                        android:layout_gravity="center"/>
+
+                    <!-- Текст счастья -->
+                    <TextView
+                        android:id="@+id/happinessTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="50%"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+                <!-- Здоровье -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Иконка здоровья -->
+                    <ImageView
+                        android:id="@+id/healthIcon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/heal"
+                        android:layout_gravity="center"/>
+
+                    <!-- Текст здоровья -->
+                    <TextView
+                        android:id="@+id/healthTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="50%"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="italic" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Изображение в зависимости от характеристик питомца -->
+        <ImageView
+            android:id="@+id/statusImageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/headerAndState"
+            android:layout_above="@id/buttonLayout"
+            android:layout_marginVertical="20dp"
+            android:src="@drawable/bazar"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"/>
+
+        <!-- Линейный макет для кнопок внизу -->
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/feedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Кормить"
+                android:background="@drawable/button_background"
+                android:layout_marginEnd="5dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/playButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Играть"
+                android:background="@drawable/button_background"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/healButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Лечить"
+                android:background="@drawable/button_background"
+                android:layout_marginStart="5dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
